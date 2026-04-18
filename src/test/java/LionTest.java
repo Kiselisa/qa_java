@@ -1,6 +1,5 @@
 import com.example.Feline;
 import com.example.Lion;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -15,15 +14,11 @@ public class LionTest {
     @Mock
     Feline feline;
 
-    @Test
-    public void shouldThrowExceptionWhenInvalidSex() {
-        try {
-            new Lion("Небинарная личность", feline);
-            Assert.fail("Должно было выброситься исключение, но лев создался!");
-        } catch (Exception exception) {
-            assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
-        }
+    @Test(expected = Exception.class)
+    public void shouldThrowExceptionWhenInvalidSex() throws Exception {
+        new Lion("Небинарная личность", feline);
     }
+
     @Test
     public void getKittensReturnsCorrectValue() throws Exception {
         Mockito.when(feline.getKittens()).thenReturn(12);

@@ -31,7 +31,6 @@ public class LionParamTest {
         Feline feline = Mockito.mock(Feline.class);
         Lion lion = new Lion(sex, feline);
         assertEquals(hasMane, lion.doesHaveMane());
-        System.out.println(sex + " имеет гриву? - " +  hasMane);
     }
 }
 
